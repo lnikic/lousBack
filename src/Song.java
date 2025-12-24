@@ -34,6 +34,22 @@ public class Song {
     }
 
     public String toString() {
-        return title;
+        return title + " " + artist + " " + genre;
+    }
+
+    //for the stream sort and distinct
+    @Override
+    public boolean equals(Object song) {
+        Song other = (Song) song;
+        if (title.equals(other.title) && artist.equals(other.artist)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return title.hashCode();
     }
 }
