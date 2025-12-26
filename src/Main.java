@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -19,6 +20,16 @@ public class Main {
                 .distinct()
                 .toList();
         System.out.println(genre);
+
+        boolean result1 = songs.stream()
+                .anyMatch(s -> s.getGenre().equals("R&B"));
+        System.out.println(result1);
+
+        Optional<Song> result2 = songs.stream()
+                .filter(song -> song.getYear() == 1995)
+//                .skip(1)
+                .findFirst();
+        System.out.println(result2);
 
         String songTittle = "With a Little Help from My Friends";
         List<String> result = songs.stream()
